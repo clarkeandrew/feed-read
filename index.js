@@ -121,6 +121,7 @@ FeedRead.atom = function(xml, source, callback) {
         var obj = {
             title:     child_data(art, "title")
           , content:   scrub_html(child_data(art, "content"))
+          , description: child_data(art, "description")
           , published: child_data(art, "published")
                     || child_data(art, "updated")
           , author:    author || default_author
@@ -177,6 +178,7 @@ FeedRead.rss = function(xml, source, callback) {
             title:     child_data(art, "title")
           , content:   scrub_html(child_data(art, "content:encoded"))
                     || scrub_html(child_data(art, "description"))
+          , description: child_data(art, "description")
           , published: child_data(art, "pubDate")
           , author:    child_data(art, "author")
                     || child_data(art, "dc:creator")
